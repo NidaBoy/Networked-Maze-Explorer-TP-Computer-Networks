@@ -70,6 +70,12 @@ int check_win_condition(const Maze *maze){
 // Calcula uma lista dos movimentos válidos em forma de inteiros
 void avaliate_valid_moves(const Maze *maze, int* valid_moves){
     int i = 0;
+    
+    // Limpa o array valid_moves
+    for(int i = 0; i < 100; i++){
+        valid_moves[i] = 0;
+    }
+
     // Descobrir pra cima
     if((maze->player_x > 0) && (maze->grid[maze->player_x - 1][maze->player_y] == SERVER_EMPYT)){
         valid_moves[i] = UP;

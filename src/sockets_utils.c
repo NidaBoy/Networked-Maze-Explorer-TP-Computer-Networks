@@ -91,7 +91,7 @@ int create_client_socket(const char *address_family, const char *ip, int port) {
 
 // Função para enviar a estrutura "action"
 ssize_t send_action(int sockfd, struct action *act) {
-    ssize_t bytes_sent = send(sockfd, act, sizeof(struct action), 0);
+    ssize_t bytes_sent = send(sockfd, act, sizeof(struct Action), 0);
     if (bytes_sent < 0) {
         perror("Erro ao enviar dados");
     }
@@ -99,8 +99,8 @@ ssize_t send_action(int sockfd, struct action *act) {
 }
 
 // Função para receber a estrutura "action"
-ssize_t receive_action(int sockfd, struct action *act) {
-    ssize_t bytes_received = recv(sockfd, act, sizeof(struct action), 0);
+ssize_t receive_action(int sockfd, struct Action *act) {
+    ssize_t bytes_received = recv(sockfd, act, sizeof(struct Action), 0);
     if (bytes_received < 0) {
         perror("Erro ao receber dados");
     }
